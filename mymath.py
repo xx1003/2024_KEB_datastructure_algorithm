@@ -1,3 +1,4 @@
+import time
 # def factorial(number) -> int :
 #     """
 #     factorial by repetition
@@ -28,6 +29,9 @@ def nCr(n, r) -> int :
     :param r: int
     :return: int
     """
+    start = time.time()
     numerator = factorial(n)
     denominator = factorial(n-r) * factorial(r)
+    end = time.time()
+    print(f"소요시간 : {end - start}")
     return int(numerator / denominator)
