@@ -1,8 +1,19 @@
-import mymath
+import random
 
-if __name__ == "__main__":
-    n = int(input("Input n : "))
-    r = int(input("Input r : "))
-    print(f"{n}C{r} = {mymath.nCr(n, r)}")
-    # f = int(input())
-    # print(mymath.factorial(f))
+ans = random.randint(1, 100)
+chance = 7
+
+while chance != 0:
+    x = int(input("Input guess number : "))
+    if x == ans:
+        print(f"You win. Answer is {ans}.")
+        print(chance)
+        break
+    elif x < ans:
+        print(f"{x} is smaller. Chance left : {chance}")
+        chance -= 1
+    else:
+        print(f"{x} is bigger. Chance left : {chance}")
+        chance -= 1
+else:
+    print(f"You lost. Answer is {ans}.")

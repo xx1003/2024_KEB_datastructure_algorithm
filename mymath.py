@@ -1,4 +1,6 @@
 import time
+
+
 def timer(func):
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -31,8 +33,9 @@ def factorial(number) -> int:
     else:
         return number * factorial(number - 1)
 
+
 @timer
-def nCr(n, r) -> int : # SRP, OCP violation (단일 책임 어쩌고 위배)
+def nCr(n, r) -> int:   # SRP, OCP violation (단일 책임 어쩌고 위배)
     """
     조합 함수
     :param n: int
