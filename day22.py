@@ -1,29 +1,17 @@
-# graph = [
-#     [0, 1, 0, 1, 0],
-#     [1, 0, 1, 1, 0],
-#     [0, 1, 0, 0, 1],
-#     [1, 1, 0, 0, 1],
-#     [0, 0, 1, 1, 0]
-# ]
+def decimal_to_octal(number:int) -> str:
+    """
+    decimal number to octal number
+    :param number: integer (base dec)
+    :return: string (base octal)
+    """
 
-graph = [
-    [0, 1, 1, 0, 0, 0],
-    [1, 0, 0, 1, 0, 0],
-    [1, 0, 0, 1, 0, 0],
-    [0, 1, 1, 0, 1, 1],
-    [0, 0, 0, 1, 0, 1],
-    [0, 0, 0, 1, 1, 0]
-]
+    octal = ''
+    while number > 0:
+        octal = str(number % 8) + octal
+        number = number // 8
+
+    return octal
 
 
-def dfs(g, i, visited):
-    visited[i] = 1
-    print(chr(ord('A')+i), end=' ')
-    for j in range(len(g)):
-        if g[i][j] == 1 and visited[j] == 0:
-            dfs(g, j, visited)
-
-
-visited = [0] * len(graph)
-dfs(graph,0, visited)
-
+n = int(input("Input decimal number : "))
+print(decimal_to_octal(n))
