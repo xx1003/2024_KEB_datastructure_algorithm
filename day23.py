@@ -16,21 +16,28 @@ def fibo_memoization(number: int) -> int:
     return result
 
 
-w = tk.Tk()   # create window object
-w.title("Fibonacci")
-w.geometry("250x100")
+def process_fibonacci():
+    number = int(en_input_number.get())
+    lbl_display_fibonacci_result.config(text=f"fibonacci({number}) = {fibo_memoization(number)}")
 
-# create widget
-lbl_display_fibonacci_result = tk.Label(w, text='Fibonacci by memoization')
-en_input_number = tk.Entry(w)
-btn_click = tk.Button(w, text="Click")
 
-# layout
-lbl_display_fibonacci_result.pack()
-en_input_number.pack(fill="x")
-btn_click.pack(fill="x")
+if __name__ == "__main__":
+    w = tk.Tk()   # create window object
+    w.title("Fibonacci")
+    w.geometry("250x100")
 
-w.mainloop()
+    # create widget
+    lbl_display_fibonacci_result = tk.Label(w, text='Fibonacci by memoization')
+    en_input_number = tk.Entry(w)
+    btn_click = tk.Button(w, text="Click", command=process_fibonacci)   # bind function
+
+    # layout
+    lbl_display_fibonacci_result.pack()
+    en_input_number.pack(fill="x")
+    btn_click.pack(fill="x")
+    en_input_number.focus()
+
+    w.mainloop()
 
 
 # n = int(input("Input number : "))     # Input box
