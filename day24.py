@@ -20,14 +20,18 @@ def bfs(g, i, visited):
 
 
 graph = [
-    [0, 1, 1, 0, 0, 0],
-    [1, 0, 0, 1, 0, 0],
-    [1, 0, 0, 1, 0, 0],
-    [0, 1, 1, 0, 1, 1],
-    [0, 0, 0, 1, 0, 1],
-    [0, 0, 0, 1, 1, 0]
+    [0, 1, 1, 0, 0, 0, 0, 0],
+    [1, 0, 0, 1, 0, 0, 0, 0],
+    [1, 0, 0, 1, 0, 0, 0, 0],
+    [0, 1, 1, 0, 1, 1, 1, 0],
+    [0, 0, 0, 1, 0, 1, 0, 0],
+    [0, 0, 0, 1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 1, 0]
 ]
 
-visited = [0 for _ in range(len(graph))]
-# dfs(graph, 0, visited)
-bfs(graph, 0, visited)
+visited_dfs = [0 for _ in range(len(graph))]
+visited_bfs = [0 for _ in range(len(graph))]
+dfs(graph, 0, visited_dfs)
+print()
+bfs(graph, 0, visited_bfs)
